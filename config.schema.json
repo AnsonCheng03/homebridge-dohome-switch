@@ -1,0 +1,33 @@
+{
+  "pluginAlias": "DoHomeSwitch",
+  "pluginType": "accessory",
+  "singular": false,
+  "schema": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "title": "Name (Usually Last 4 Character of Mac Address)",
+        "type": "string",
+        "required": true,
+        "default": "65ff"
+      },
+      "host": {
+        "title": "Your Subnet",
+        "required": true,
+        "type": "string",
+        "default": "192.168.0.255"
+      },
+      "port": {
+        "title": "UDP podcast path",
+        "type": "integer",
+        "default": 6091
+      },
+      "deviceid": {
+        "title": "Device ID",
+        "type": "string",
+        "required": true,
+        "default": "955sga0g65ff_DT-PLUG_HOMEKIT"
+      }
+    }
+  }
+}

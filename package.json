@@ -1,0 +1,28 @@
+{
+  "name": "homebridge-dohome-switch",
+  "version": "1.0.0",
+  "author": "Anson",
+  "description": "Control DoHome Power Switch Devices",
+  "license": "MIT",
+  "homepage": "https://github.com/AnsonCheng03/homebridge-dohome-switch#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnsonCheng03/homebridge-dohome-switch.git"
+  },
+  "keywords": [
+    "homebridge-plugin",
+    "dohome",
+    "switch",
+    "power",
+    "doit"
+  ],
+  "main": "index.js",
+  "engines": {
+    "node": ">=0.12.0",
+    "homebridge": ">=0.2.0"
+  },
+  "dependencies": {},
+  "bugs": {
+    "url": "https://github.com/AnsonCheng03/homebridge-dohome-switch/issues"
+  }
+}
