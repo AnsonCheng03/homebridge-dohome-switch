@@ -6,10 +6,10 @@
     "type": "object",
     "properties": {
       "name": {
-        "title": "Name (Usually Last 4 Character of Mac Address)",
+        "title": "Name",
         "type": "string",
         "required": true,
-        "default": "65ff"
+        "default": "Switch 1"
       },
       "prodname": {
         "title": "Usually Last 4 Character of Mac Address",

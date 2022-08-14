@@ -11,11 +11,12 @@ _________________________________________
 
 ```
 {
-    "accessory": "DoHomeSwitch",
-    "name": "65ff",
-    "host": "192.168.0.255",
+    "name": "My Name",
+    "prodname": "65ff",
+    "subnet": "192.168.0.255",
     "port": 6091,
-    "deviceid": "955sga0g65ff_DT-PLUG_HOMEKIT"
+    "deviceid": "955sga0g65ff_DT-PLUG_HOMEKIT",
+    "accessory": "DoHomeSwitch"
 }
 ```
 
@@ -44,6 +45,7 @@ _________________________________________
 ### 1.0.1
 
 * Change Variable Names
+* Update Documentary
 
 ## Referenced project
 1. homebridge-udp-json-master
