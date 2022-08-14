@@ -13,15 +13,16 @@ module.exports = function (homebridge) {
 function DoHomeSwitch(log, config) {
     this.log = log;
     this.name = config.name || 'DoHome Switch';
-    this.host = config.host || '192.168.1.255';
+    this.prodname = config.prodname;
+    this.subnet = config.subnet || '192.168.0.255';
     this.port = config.port || 6091;
-    this.deviceid = config.deviceid || this.name + "_DT-PLUG_HOMEKIT"
+    this.deviceid = config.deviceid || this.prodname + "_DT-PLUG_HOMEKIT"
 }
 
 DoHomeSwitch.prototype = {
 
-    udpRequest: function (host, port, message, callback) {
-        udp(host, port, message, function (err, returnmsg) {
+    udpRequest: function (subnet, port, message, callback) {
+        udp(subnet, port, message, function (err, returnmsg) {
             callback(err, returnmsg);
         });
     },
@@ -34,7 +35,7 @@ DoHomeSwitch.prototype = {
             return;
         }
 
-        if (!this.name) {
+        if (!this.prodname) {
             this.log.warn('No device specified');
             return;
         }
@@ -42,12 +43,12 @@ DoHomeSwitch.prototype = {
         const message =
             [
                 powerState ?
-                    "cmd=ctrl&devices={[" + this.name + "]}&op={\"cmd\":5, \"op\":1}" :
-                    "cmd=ctrl&devices={[" + this.name + "]}&op={\"cmd\":5, \"op\":0}",
+                    "cmd=ctrl&devices={[" + this.prodname + "]}&op={\"cmd\":5, \"op\":1}" :
+                    "cmd=ctrl&devices={[" + this.prodname + "]}&op={\"cmd\":5, \"op\":0}",
                 this.deviceid
             ];
 
-        this.udpRequest(this.host, this.port, message, function (error, returnmsg) {
+        this.udpRequest(this.subnet, this.port, message, function (error, returnmsg) {
             if (error) {
                 this.log.error('setPowerState failed: ' + error.message);
                 this.log('response: ' + response + '\nbody: ' + responseBody);
@@ -83,7 +84,7 @@ DoHomeSwitch.prototype = {
         //Get current state
         let loopcount = 0;
         function loopuntilsuccess(wrapper, message) {
-            wrapper.udpRequest(wrapper.host, wrapper.port, message, function (error, returnmsg) {
+            wrapper.udpRequest(wrapper.subnet, wrapper.port, message, function (error, returnmsg) {
                 if (error) {
                     wrapper.log.error('setPowerState failed: ' + error.message);
                     wrapper.log('response: ' + response + '\nbody: ' + responseBody);
@@ -105,7 +106,7 @@ DoHomeSwitch.prototype = {
         }
         
         loopuntilsuccess(this, [
-            "cmd=ctrl&devices={[" + this.name + "]}&op={\"cmd\":25}",
+            "cmd=ctrl&devices={[" + this.prodname + "]}&op={\"cmd\":25}",
             this.deviceid,
             "getServices"
         ])

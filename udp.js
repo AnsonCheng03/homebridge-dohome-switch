@@ -1,4 +1,4 @@
-module.exports = function (host, port, msg, callback) {
+module.exports = function (subnet, port, msg, callback) {
   const message = new Buffer(msg[0], 'ascii');
   const dgram = require('dgram');
   const client = dgram.createSocket('udp4');
@@ -40,13 +40,13 @@ module.exports = function (host, port, msg, callback) {
   );
 
 
-  client.send(message, 0, message.length, port, host, function (err, bytes) {
+  client.send(message, 0, message.length, port, subnet, function (err, bytes) {
     if (err) throw err;
 
-    setTimeout(() => { try { client.send(message, 0, message.length, port, host, function (err, bytes) { if (err) throw err; }); } catch (e) { } }, 250);
-    setTimeout(() => { try { client.send(message, 0, message.length, port, host, function (err, bytes) { if (err) throw err; }); } catch (e) { } }, 500);
-    setTimeout(() => { try { client.send(message, 0, message.length, port, host, function (err, bytes) { if (err) throw err; }); } catch (e) { } }, 750);
-    setTimeout(() => { try { client.send(message, 0, message.length, port, host, function (err, bytes) { if (err) throw err; }); } catch (e) { } }, 1000);
+    setTimeout(() => { try { client.send(message, 0, message.length, port, subnet, function (err, bytes) { if (err) throw err; }); } catch (e) { } }, 250);
+    setTimeout(() => { try { client.send(message, 0, message.length, port, subnet, function (err, bytes) { if (err) throw err; }); } catch (e) { } }, 500);
+    setTimeout(() => { try { client.send(message, 0, message.length, port, subnet, function (err, bytes) { if (err) throw err; }); } catch (e) { } }, 750);
+    setTimeout(() => { try { client.send(message, 0, message.length, port, subnet, function (err, bytes) { if (err) throw err; }); } catch (e) { } }, 1000);
     
     setTimeout(() => {
       try {

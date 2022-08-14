@@ -11,9 +11,14 @@
         "required": true,
         "default": "65ff"
       },
-      "host": {
-        "title": "Your Subnet",
+      "prodname": {
+        "title": "Usually Last 4 Character of Mac Address",
+        "type": "string",
         "required": true,
+        "default": "65ff"
+      },
+      "subnet": {
+        "title": "Your Subnet",
         "type": "string",
         "default": "192.168.0.255"
       },
@@ -25,7 +30,6 @@
       "deviceid": {
         "title": "Device ID",
         "type": "string",
-        "required": true,
         "default": "955sga0g65ff_DT-PLUG_HOMEKIT"
       }
     }

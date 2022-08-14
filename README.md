@@ -2,8 +2,6 @@
 
 DoHome Power Switch - Control 'Doit' / 'Dohome' power switch devices
 
-*
-
 
 _________________________________________
 
@@ -25,8 +23,9 @@ _________________________________________
 
 |             Parameter            |                       Description                       | Required |
 | -------------------------------- | ------------------------------------------------------- |:--------:|
-| `name`                           | Usually Last 4 Character of Mac Address                 |          |
-| `host`                           | Your Subnet                                             |     ✓    |
+| `name`                           | Just a random nickname                                  |          |
+| `prodname`                       | Usually Last 4 Character of Mac Address                 |          |
+| `subnet`                         | Your Subnet                                             |     ✓    |
 | `port`                           | 6091 (default)                                          |          |
 | `deviceid`                       |                                                         |     ✓    |
 
@@ -38,6 +37,13 @@ _________________________________________
 2. Install homebridge-http using: `npm install -g homebridge-dohome-switch`
 3. Update your config file
 
+_________________________________________
+
+## Update
+
+### 1.0.1
+
+* Change Variable Names
 
 ## Referenced project
 1. homebridge-udp-json-master
