@@ -24,11 +24,11 @@ _________________________________________
 
 |             Parameter            |                       Description                       | Required |
 | -------------------------------- | ------------------------------------------------------- |:--------:|
-| `name`                           | Just a random nickname                                  |          |
-| `prodname`                       | Usually Last 4 Character of Mac Address                 |          |
+| `name`                           | Just a random nickname                                  |     ✓    |
+| `prodname`                       | Usually Last 4 Character of Mac Address                 |     ✓    |
 | `subnet`                         | Your Subnet                                             |     ✓    |
 | `port`                           | 6091 (default)                                          |          |
-| `deviceid`                       |                                                         |     ✓    |
+| `deviceid`                       |                                                         |          |
 
 
 
